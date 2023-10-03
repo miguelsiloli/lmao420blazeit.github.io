@@ -71,6 +71,8 @@ var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "name";
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.inversed = true;
+categoryAxis.renderer.labels.template.fontSize = 14;
+categoryAxis.renderer.minGridDistance = 20;
 
 var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
 dateAxis.dateFormatter.dateFormat = "yyyy-MM-dd";
@@ -92,8 +94,11 @@ series1.columns.template.propertyFields.fill = "color"; // get color from data
 series1.columns.template.propertyFields.stroke = "color";
 series1.columns.template.strokeOpacity = 1;
 
+
 chart.legend = new am4charts.Legend();
 chart.legend.useDefaultMarker = true;
+chart.legend.fontSize = 14;
+//chart.legend.CategoryAxis.template.fontSize = 14;
 chart.legend.data = [
     {
     "name": "Requirements",
