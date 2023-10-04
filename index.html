@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Project Showcase</title>
+    <title>MSc Project Showcase</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -15,6 +15,12 @@
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="components/sidebar.css">
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -47,32 +53,34 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+            <div style="position: absolute; top: 15%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="index.html">MSc Dissertation</a>
+                    </li>
+                    <li>
+                        <a href="#">BSc Dissertation</a>
+                    </li>
+                    <li>
+                        <a href="#">Browser Game API</a>
+                    </li>
+                    <li>
+                        <a href="apn.html">Negotiation Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Process Improvement</a>
+                    </li>
+                    <li>
+                        <a href="#">CFA I</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="jumbotron">
-            <h2 class="display-4">Data Science Project Showcase</h2>
+            <h3 class="display-4">Data Science Project Showcase</h3>
             <b> End-to-end data pipeline & visualization app in the context of an heavy industry for my MSc thesis.</b>
         </div>
 
@@ -81,8 +89,8 @@
                 <h4>Motivation</h4>
                 <p style="font-size: 14px;">
                     The strategic goals in industries in heavy mature industries, with low product differentiation is through price competition. 
-                    Harnessing the power of data driven solutions to increase the efficiency of processes and machinery yields much more interesting results than investing into new expensive equipment, specially during credit crunch periods.
-                    The value proposition is thus to capture real time data from industrial programmable logic circuits through the shop-floor network and store it into structured databases, to compute industry relevant metrics and to build a dashboard to support managerial decisions.
+                    Harnessing the power of data driven solutions to increase the efficiency of processes and machinery yields better return on investment than investing into new expensive equipment, specially during credit crunch periods.
+                    The value proposition is to capture real time data from industrial programmable logic circuits through the shop-floor network and store it into structured databases, to compute industry relevant metrics and to build a dashboard to support managerial decisions.
                 </p>
             </div>
         </div>
@@ -106,8 +114,8 @@
                 <h4 style="text-align: center;">Problems</h4>
                     <ol style="font-size: 14px;">
                         <li>Machines generations had up to 50 years age gaps</li>
-                        <li>Poor data integrity at source</li>
-                        <li>Time-memory tradeoff & solution complexity optimization</li>
+                        <li><a href="#Data Quality">Data integrity at source</a></li>
+                        <li><a href="#Optimization">Time-memory tradeoff & solution complexity optimization</a></li>
                         <li>Communication barriers between stakeholders</li>
                     </ol>
                 </div>
@@ -117,9 +125,18 @@
                     <li>Agile methodologies are more suitable for these projects</li>
                     <li>Spend more time planning & interacting with users, and less time coding</li>
                     <li>Reusable web components and elements brings down UIX time-to-market</li>
+                    <li>ORM isn't optimal with simple models & high throughput</li>
                 </ol>
             </div>
             </div>
+        </div>
+
+        <!-- Create a div where the graph will take place -->
+        <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
+            <h4>Demo</h4>
+            <div class="container">
+                <div id="my_dataviz"></div>
+            </div>    
         </div>
 
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
@@ -149,13 +166,40 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/d3_graph.js"></script>
 
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="sidebar.css">
     <!-- Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<!-- Optimization Div
+<div class="container" id="Optimization">
+    <h4>Optimization</h4>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">SQL-bound optimizations</h5>
+              <div class="card-subtitle mb-2 text-muted" style="font-size:16px;">Switching SQL Engines from SQLAlchemy-ORM to SQLAlchemy-Core</div>
+              <p class="card-text">The standard framework of SQLAlchemy with object oriented languages such as Python is to implement an Object Relational Mapper (ORM) logic.
+                The ORM package binds SQL structures to language objects providing specific clases and methods to access SQL instructions. This was the original implementation of the SQL handler.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Python-side optimizations</h5>
+                  <div class="card-subtitle mb-2 text-muted" style="font-size:16px;">Switching SQL Engines from SQLAlchemy-ORM to SQLAlchemy-Core & in-memory SQLite</div>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+-->
