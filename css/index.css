@@ -1,5 +1,5 @@
 body {
-  font-family : 'Ubuntu', sans-serif;
+  font-family : 'Ubuntu';
 }
 
 #chartdiv {
@@ -23,3 +23,8 @@ body {
   position: relative;
 }
 
+img.animated-gif{
+  width: 100px;
+  height: auto;
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+}

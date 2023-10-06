@@ -1,6 +1,6 @@
 
 // set the dimensions and margins of the graph
-const margin = {top: 60, right: 60, bottom: 30, left: 60},
+const margin = {top: 60, right: 60, bottom: 60, left: 60},
     width = document.getElementById('my_dataviz').parentElement.clientWidth - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -53,28 +53,88 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/da
       .attr("d", d3.line()
         .x(function(d) { return x(d.x) })
         .y(function(d) { return y(d.y) })
-        )
-      .on('mouseover', function (d, i) {
-        d3.select(this).transition()
-              .duration('50')
-              .attr('opacity', '.85')
-            });
-
-    svg.append("path")
-      .attr("x", (width / 2))             
-      .attr("y", 0 - (margin.top))
-      .attr("text-anchor", "middle")  
-      .style("font-size", "16px") 
-      .style("text-decoration")  
-      .text("Density Estimation using bias-corrected and accelerated Bootstrap");
-
-    svg.append("path")
-      .attr("d", d3.line()
-        .x1(11)
-        .x2(11)
-        .y1(0)
-        .y2(500)
       )
+
+    // confidence intervals lines
+    svg.append("line")  
+      .attr("stroke", "gray")
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("stroke-width", 2)
+      .attr("x1", 100)
+      .attr("y1", 0)
+      .attr("x2", 100)
+      .attr("y2", height);
+
+    svg.append("line")  
+      .attr("stroke", "gray")
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("stroke-width", 2)
+      .attr("x1", 750)
+      .attr("y1", 0)
+      .attr("x2", 750)
+      .attr("y2", height);
+
+    // axis labels x-axis
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height + 40)
+      .text("time (seconds)");
+
+    // axis labels x-axis
+    svg.append("text")
+      .attr("class", "y label")
+      .attr("text-anchor", "end")
+      .attr("y", - 40)
+      .attr("dy", ".75em")
+      .attr("transform", "rotate(-90)")
+      .text("probability density");
+
+    const type = d3.annotationCalloutElbow
+
+    const annotations = [{
+      note: {
+        label: "OneClassSVM",
+        title: "Inlier threshold"
+      },
+      x: 160,
+      y: 200,
+      dy: 137,
+      dx: 650
+    }]
+    
+    const makeAnnotations = d3.annotation()
+      .editMode(true)
+      //also can set and override in the note.padding property
+      //of the annotation object
+      .notePadding(15)
+      .type(type)
+      //accessors & accessorsInverse not needed
+      //if using x, y in annotations JSON
+      .accessors({
+        x: d => x(d.x),
+        y: d => y(d.y)
+      })
+      .accessorsInverse({
+          x: d => x.invert(d.x),
+          y: d => y.invert(d.y)
+      })
+      .annotations(annotations)
+    
+    d3.select("#my_dataviz").select("svg")
+      .append("g")
+      .attr("class", "annotation-group")
+      .call(makeAnnotations)
+
+    svg.append("text")
+      .attr("x", width/2)
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("font-weight", "bold")
+      .style("font-family", 'Nunito')
+      .text("Probability Density Function Estimation");
 
 })
 

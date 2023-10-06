@@ -18,6 +18,11 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="components/sidebar.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v6.js"></script>
@@ -33,6 +38,7 @@
             background-color: rgb(179, 113, 14);
             color: #fff;
             text-align: center;
+            padding: 2rem 2rem;
         }
 
         .project-description {
@@ -80,13 +86,15 @@
             </div>
         </div>
         <div class="jumbotron">
-            <h3 class="display-4">Data Science Project Showcase</h3>
-            <b> End-to-end data pipeline & visualization app in the context of an heavy industry for my MSc thesis.</b>
+            <div style="display:inline-block;">
+                <h3 class="display-4" style="font-family: 'Bungee';"><img class="animated-gif" src="resources/diamond.gif"> Cycle-time inference</h3>
+                <b> End-to-end data pipeline & visualization app in the context of an heavy industry for my MSc thesis</b>
+            </div>    
         </div>
 
         <div class="container project-description">
             <div class="row">
-                <h4>Motivation</h4>
+                <h4 style="font-family: 'Bungee';">Motivation</h4>
                 <p style="font-size: 14px;">
                     The strategic goals in industries in heavy mature industries, with low product differentiation is through price competition. 
                     Harnessing the power of data driven solutions to increase the efficiency of processes and machinery yields better return on investment than investing into new expensive equipment, specially during credit crunch periods.
@@ -99,48 +107,69 @@
             <div id="chartdiv" style="height: 300px;"></div>
         </div>
 
-        <div class="container" style="background-color: #c4d6e2; padding-top:1%; padding-bottom:1%;" >
+
+        <div class="container bootstrap snippets bootdeys">
             <div class="row">
-            <div class="col-sm-4">
-                <h4 style="text-align: center;">Deliverables</h4>
-                <ol style="font-size: 14px;">
-                    <li>Data pipeline with emphasis in data validation</li>
-                    <li>Develop a data validation tool</li>
-                    <li>Create a structured database</li>
-                    <li>Build a data visualization dashboard</li>
-                </ol>    
-            </div>
-            <div class="col-sm-4">
-                <h4 style="text-align: center;">Problems</h4>
-                    <ol style="font-size: 14px;">
-                        <li>Machines generations had up to 50 years age gaps</li>
-                        <li><a href="#Data Quality">Data integrity at source</a></li>
-                        <li><a href="#Optimization">Time-memory tradeoff & solution complexity optimization</a></li>
-                        <li>Communication barriers between stakeholders</li>
-                    </ol>
+                <div class="col-md-4 col-sm-6 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                            <div class="content">
+                                <h4 class="title"><a href="#">Deliverables</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Data pipeline with emphasis in data validation</li>
+                                    <li>Develop a data validation tool</li>
+                                    <li>Create a structured database</li>
+                                    <li>Build a data visualization dashboard</li>
+                                </ol>  
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
                 </div>
-            <div class="col-sm-4">
-                <h4 style="text-align: center;">Final Remarks</h4>
-                <ol style="font-size: 14px;">
-                    <li>Agile methodologies are more suitable for these projects</li>
-                    <li>Spend more time planning & interacting with users, and less time coding</li>
-                    <li>Reusable web components and elements brings down UIX time-to-market</li>
-                    <li>ORM isn't optimal with simple models & high throughput</li>
-                </ol>
-            </div>
+                
+                <div class="col-md-4 col-sm-6 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="purple" data-radius="none">
+                            <div class="content">
+                                <h4 class="title"><a href="#">Problems</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Machines generations had up to 50 years age gaps</li>
+                                    <li><a href="#Data Quality">Data integrity at source</a></li>
+                                    <li><a href="#Optimization">Time-memory tradeoff & solution complexity optimization</a></li>
+                                    <li>Communication barriers between stakeholders</li>
+                                </ol>   
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="brown" data-radius="none">
+                            <div class="content">
+                                <h4 class="title"><a href="#">Remarks</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Agile methodologies are more suitable for these projects</li>
+                                    <li>Spend more time planning & interacting with users, and less time coding</li>
+                                    <li>Reusable web components and elements brings down UIX time-to-market</li>
+                                    <li>ORM isn't optimal with simple models & high throughput</li>
+                                </ol>
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Create a div where the graph will take place -->
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
-            <h4>Demo</h4>
+            <h4 style="font-family: 'Bungee';">Demo</h4>
             <div class="container">
                 <div id="my_dataviz"></div>
             </div>    
         </div>
 
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
-            <h4>Wireframe</h4>
+            <h4 style="font-family: 'Bungee';">Wireframe</h4>
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" style="padding-top: 2%; padding-bottom: 2%;">
                     <ol class="carousel-indicators">
@@ -148,8 +177,9 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     </ol>
                     <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img id="anim" class="d-block w-100" src="wireframe.svg" alt="First slide">
+                    <div class="carousel-item active" style="text-align: center">
+                        <img id="anim" class="d-block w-100" src="resources/wireframe.svg" alt="First slide">
+                        <caption>Wireframe of PLC monitoring</caption>
                     </div>
                         <div class="carousel-item">
                         </div>
@@ -168,6 +198,9 @@
     </div>
     <script src="javascript/index.js"></script>
     <script src="javascript/d3_graph.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
 
     <!-- Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
