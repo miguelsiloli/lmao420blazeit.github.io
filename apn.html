@@ -15,8 +15,13 @@
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/apn.css">
     <link rel="stylesheet" href="components/sidebar.css">
 
 
@@ -79,8 +84,8 @@
             </div>
         </div>
         <div class="jumbotron">
-            <h3 class="display-4">Annual Price Negotiation Dashboard</h3>
-            <b>Simple tracking dashboard for 2024 annual price negotiation based on negotiation cards</b>
+            <h3 class="display-4" style="font-family: 'Bungee';"><img class="animated-gif" src="resources/trump.gif"> Price Negotiation</h3>
+            <b>Simple tracking dashboard for 2024 annual price negotiation based on kanban negotiation cards</b>
         </div>
 
 
@@ -90,33 +95,62 @@
                 <p style="font-size: 14px;">
                     The annual price negotiation is an important end of year event where buyers receive their targets from their business units to achieve strategic objectives. This is a call for action to anchor suppliers, evaluate leverages and plan strategies to achieve the best contract terms for the following year(s).
                     This dashboard is a tracking tool for the negotiation status for all buyers in Braga. As input, it reads the informations in standardized excel nego-cards developed for such purposed. 
-                    The main tracking targets are (1) scheduling of negotiations and timeline, (2) general overview of how Braga buyers are doing vs their benchmark and (3) get an individual overview for each buyer.
+                    The main tracking targets are:
+                    <ol style="font-size: 14px;">
+                        <li>scheduling of negotiations and timeline</li>
+                        <li>general overview of how Braga buyers are doing vs their benchmark</li>
+                        <li>get an individual overview for each buyer</li>
+                    </ol>
                 </p>
             </div>
         </div>
 
-        <div class="container">
-            <div id="chartdiv" style="height: 300px;"></div>
+        <div class="container bootstrap snippets bootdeys">
+            <div class="row">
+                <div class="col-md-4 col-sm-8 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+                            <div class="content" style="padding-left: 20px; padding-right: 20px;">
+                                <h4 class="title"><a href="#">Deliverables</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Nego-card templates</li>
+                                    <li>Build a data visualization dashboard</li>
+                                </ol>  
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-8 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="purple" data-radius="none">
+                            <div class="content" style="padding-left: 20px; padding-right: 20px;">
+                                <h4 class="title"><a href="#">Final Remarks</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Nego-cards should be kept simple with the minimum information to increase information accuracy and adherence</li>
+                                    <li>Streamlit is an easy-to-use dashboarding tool but not very flexible when it comes to custom components</li>
+                                </ol>   
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-8 content-card">
+                    <div class="card-big-shadow">
+                        <div class="card card-just-text" data-background="color" data-color="purple" data-radius="none">
+                            <div class="content" style="padding-left: 20px; padding-right: 20px;">
+                                <h4 class="title"><a href="#">Final Remarks</a></h4>
+                                <ol style="font-size: 14px;">
+                                    <li>Nego-cards should be kept simple with the minimum information to increase information accuracy and adherence</li>
+                                    <li>Streamlit is an easy-to-use dashboarding tool but not very flexible when it comes to custom components</li>
+                                </ol>   
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="container" style="background-color: #c4d6e2; padding-top:1%; padding-bottom:1%;" >
-            <div class="row">
-            <div class="col-sm-6">
-                <h4 style="text-align: center;">Deliverables</h4>
-                <ol style="font-size: 14px;">
-                    <li>Nego-card templates</li>
-                    <li>Build a data visualization dashboard</li>
-                </ol>    
-            </div>
-            <div class="col-sm-6">
-                <h4 style="text-align: center;">Final Remarks</h4>
-                <ol style="font-size: 14px;">
-                    <li>Nego-cards should be kept simple with the minimum information to increase information accuracy and adherence</li>
-                    <li>Streamlit is an easy-to-use dashboarding tool but not very flexible when it comes to custom components</li>
-                </ol>
-            </div>
-            </div>
-        </div>
     <!-- Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

@@ -164,18 +164,6 @@
             </div>
         </div>
 
-        <!-- Create a div where the graph will take place -->
-        <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
-            <h4 style="font-family: 'Bungee';">Demo</h4>
-            <div class="container">
-                <div id="my_dataviz"></div>
-                <p>
-                    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-                    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-                </p>
-            </div>    
-        </div>
-
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
             <h4 style="font-family: 'Bungee';">Wireframe</h4>
             <div class="container">
@@ -185,27 +173,51 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     </ol>
                     <div class="carousel-inner">
-                    <div class="carousel-item active" style="text-align: center">
-                        <img id="anim" class="d-block w-100" src="resources/wireframe.svg" alt="First slide">
-                        <caption>Wireframe of PLC monitoring</caption>
-                    </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item active" style="text-align: center">
+                            <img id="anim" class="d-block w-100" src="resources/wireframe.svg" alt="First slide">
+                            <caption>Wireframe of PLC monitoring</caption>
+                        </div>
+                        <div class="carousel-item" style="text-align: center">
+                            <img id="anim" class="d-block w-100" src="resources/inferentialstatistics1.png" alt="Second slide">
+                            <caption>Wireframe of statistical inference panel (graph)</caption>
+                        </div>
+                        <div class="carousel-item" style="text-align: center">
+                            <img id="anim" class="d-block w-100" src="resources/inferentialstatistics2.png" alt="Third slide">
+                            <caption>Wireframe of statistical inference panel (table)</caption>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style = "filter: invert(100%);">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style = "filter: invert(100%);">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Create a div where the graph will take place -->
+        <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
+            <h4 style="font-family: 'Bungee'; line-height: 13px;">Demo</h4>
+            <p><i style="font: size 10px;">(in progress)</i></p>
+            <div class="container">
+                <div style="line-height: 13px; display: block;" id="my_dataviz"></div>
+                <!-- LaTeX formulations
+                <p>One Class SVM decision boundary</p>
+                <p>
+                    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+                </p>
+                -->
+            </div>   
+        </div>
     </div>
     <script src="javascript/index.js"></script>
-    <script src="javascript/d3_graph.js"></script>
+
+    <!-- JS D3 Graphs -->
+    <script src="javascript/d3_density_chart.js"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
