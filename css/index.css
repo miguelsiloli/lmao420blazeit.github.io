@@ -1,5 +1,7 @@
 body {
-  font-family : 'Ubuntu';
+  font-family : 'Nunito';
+  font-size: 15px;
+  font-weight: 500;
 }
 
 #chartdiv {
