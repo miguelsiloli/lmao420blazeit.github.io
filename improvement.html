@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Project Showcase</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <!-- AM Gantt CSS and JS -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/apn.css">
+    <link rel="stylesheet" href="components/sidebar.css">
+
+
+    <!-- Custom CSS -->
+    <style>
+        /* Add custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-color: rgb(179, 113, 14);
+            color: #fff;
+            text-align: center;
+        }
+
+        .project-description {
+            padding: 0px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div style="position: absolute; top: 15%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="index.html">Msc Dissertation</a>
+                    </li>
+                    <li>
+                        <a href="#">BSc Dissertation</a>
+                    </li>
+                    <li>
+                        <a href="#">Browser Game API</a>
+                    </li>
+                    <li>
+                        <a href="apn.html">Negotiation Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="improvement.html">Process Improvement</a>
+                    </li>
+                    <li>
+                        <a href="#">CFA I</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/miguel-oliveira-862907243/">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <h3 class="display-4" style="font-family: 'Bungee';"><img src="resources/change-progress.gif" style="width: 100px;"> Process improvement</h3>
+            <b>Several process improvement projects leveraging the company's digital systems</b>
+        </div>
+
+
+        <div class="container project-description">
+            <div class="row">
+                <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Negotiation Master</h4>
+                <p style="font-size: 14px;">
+                    The negotiation master data is extracted from the SAP registries. 
+                    The current process relies on manual entries using old SAP interface to collect the data about part numbers, payment terms, suppliers & suppliers quota, supplied plants, price, consigment and incoterms.
+                    This procedure is time consuming and error prone since often times each supplier has tens of part numbers each with different supplier plants & terms. Multiple SAP systems & views are required to get the overview over just a part number.
+                </p>
+                <p style="font-size: 14px;"> The current proposal leverages SAP oracle and builds a masterfile from a streamlined procedure taking as input the part numbers.</p>
+            </div>
+            <div class="row">
+                <h6 style="font-family: 'Bungee'; text-align:right"><b style="color: brown;"></b>How it works</h6>
+                <p style="font-size: 14px;">
+               </p>
+
+            </div>
+        </div>
+
+        <div class="container" style="text-align: center; padding: 3%;">
+            <img id="anim" class="d-block w-100" src="resources/node_improvement.svg">
+        </div>
+
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+        </style>
+
+        <div class="container" style="margin-left: auto; margin-right: 0px; padding-bottom: 3%;">
+            <table class="tg">
+                <thead>
+                  <tr>
+                    <td class="tg-7btt">Plant<br></td>
+                    <td class="tg-7btt">Material<br>Number<br></td>
+                    <td class="tg-7btt">Quota</td>
+                    <td class="tg-7btt">Payment<br>Terms<br></td>
+                    <td class="tg-7btt">Supplier<br>Plant<br></td>
+                    <td class="tg-7btt">Supplier</td>
+                    <td class="tg-7btt">Incoterms</td>
+                    <td class="tg-7btt">Consignment</td>
+                    <td class="tg-7btt">Price</td>
+                    <td class="tg-7btt">Currency</td>
+                  </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="container project-description">
+            <div class="row">
+                <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Parameter list</h4>
+                <p style="font-size: 14px;">
+
+                </p>
+                <p style="font-size: 14px;"> The current proposal leverages SAP oracle and builds a masterfile from a streamlined procedure taking as input the part numbers.</p>
+            </div>
+            <div class="row">
+                <h6 style="font-family: 'Bungee'; text-align:right"><b style="color: brown;"></b>How it works</h6>
+                <p style="font-size: 14px;">
+                </p>
+
+            </div>
+        </div>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
