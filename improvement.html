@@ -143,9 +143,10 @@
             <div class="row">
                 <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Parameter list</h4>
                 <p style="font-size: 14px;">
-
+                The parameter list is an index file of the plant supplier SAP codes. This is specially important for purchasing assistants & buyers to understand which SAP system belongs to which plant for the purpose of consulting master data or system changes.
+                The file is originally maintained manually, with the latest update on 04/2023. The code generates a simple prefect worflow to update the plant supplier condes using a cron scheduler.
                 </p>
-                <p style="font-size: 14px;"> The current proposal leverages SAP oracle and builds a masterfile from a streamlined procedure taking as input the part numbers.</p>
+                <p style="font-size: 14px;"> The current propose generates a simple worflow to update the plant supplier condes using a cron scheduler making sure it's always up to date.</p>
             </div>
             <div class="row">
                 <h6 style="font-family: 'Bungee'; text-align:right"><b style="color: brown;"></b>How it works</h6>
@@ -153,6 +154,31 @@
                 </p>
 
             </div>
+        </div>
+
+        <div class="container">
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-mqa1{border-color:#000000;font-weight:bold;text-align:center;vertical-align:top}
+                </style>
+                <table class="tg">
+                <thead>
+                  <tr>
+                    <td class="tg-mqa1">Plant</td>
+                    <td class="tg-mqa1">Address</td>
+                    <td class="tg-mqa1">City</td>
+                    <td class="tg-mqa1">Purchasing<br>Group<br></td>
+                    <td class="tg-mqa1">Supplier<br>Plant<br></td>
+                    <td class="tg-mqa1">Country</td>
+                    <td class="tg-mqa1">Plant Name</td>
+                    <td class="tg-mqa1">Business Unit</td>
+                  </tr>
+                </thead>
+            </table>
         </div>
 
     <!-- Bootstrap JS and jQuery (optional) -->
