@@ -99,10 +99,11 @@
                     <br>
                     The value proposition is to capture real time data from industrial programmable logic circuits through the shop-floor network and store it into structured databases, to compute industry relevant metrics and to build a dashboard to support managerial decisions.
                 </p>
-                <p><strong>Keywords: </strong>tire-industry; data-mining; data-visualization; support-vector machines;</p>
             </div>
         </div>
 
+        <div class="container"><object data="https://github.com/lmao420blazeit/CFA/blob/main/Aggregate%20Output%2C%20Prices%20and%20Economic%20Growth.pdf" type="application/pdf"></div>
+        
 
     </div>
     <script src="javascript/index.js"></script>
