@@ -157,6 +157,61 @@
         </div>
 
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
+            <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Data-Engineering</h4>
+            <h6 style="font-family: 'Bungee';">Staging</h6>
+            <div class="row">
+                <p>The staging workflow pulls the data from the machine controllers database into a staging SQL cloud database.</p>   
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 content-card">
+                    <ol style="font-size: 14px;">
+                        <li><b>Data sources</b>: engineering services, programmable logic circuits from production lines</li>
+                        <li><b>Data transformations</b>: group by <i>machine id</i></li>
+                        <li><b>Data target</b>: MYSQL database from company cloud infrastructure</li>
+                        <li><b>Schema</b>: unstructured</li>
+                        <li><b>Failure modes</b>:</li>
+                            <ol style="font-size: 14px;">
+                                <li>power outage;</li> 
+                                <li>shopfloor network access revoged;</li>  </li>
+                                <li>cloud access revoged;</li>
+                            </ol> 
+                        <li><b>Scheduling</b>: 1 hour</li>
+                        <li><b>Worflow</b>:
+                            <p style="font-size: 12px;">Connect machine ip >> Fetch data>> Insert data</p>
+                            <ol style="font-size: 14px;">
+                                <li>linear workflow, there is no concurrency between machines;</li> 
+                                <li>the workflow is triggered by <i>fetch machine ips</i> task;</li>  </li>
+                                <li>there are no dependencies between machines (if one fails, others are unaffected);</li>
+                                <li>all-or-nothing behavior, if one partition fails, all fail;</li>
+                            </ol> 
+                        <li><b>Tools</b>: sqlalchemy, urllib, dask, sockets, pandas, airflow</li>
+                        <li><b>Potential for improvement</b>: replace a scheduler for a streaming service such as Spark; </li>
+                    </ol>
+                </div>
+                <div class="col-md-8 content-card">
+                    <img src="resources/data-engineering/data-engineer-airflow1.svg" style="width: inherit;">
+                    <div class="col-md-8 content-card">
+                        <img src="resources/data-engineering/staging.svg" style="width: inherit;">
+                        <caption>Monthly savings</caption>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-8 content-card">
+                    </div> 
+                    <div class="col-md-4 content-card">
+                        <img src="resources/data-engineering/staging.svg" style="width: inherit;">
+                        <caption>Monthly savings</caption>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <h6 style="font-family: 'Bungee';">Staging</h6>
+
+            </div>
+        </div>
+
+        <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
             <h4 style="font-family: 'Bungee';">Wireframe</h4>
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" style="padding-top: 2%; padding-bottom: 2%;">
@@ -190,21 +245,21 @@
             </div>
         </div>
 
-        <!-- Create a div where the graph will take place -->
+        <!-- Create a div where the graph will take place
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
             <h4 style="font-family: 'Bungee'; line-height: 13px;">Demo</h4>
             <p><i style="font: size 10px;">(in progress)</i></p>
             <div class="container">
                 <div style="line-height: 13px; display: block;" id="my_dataviz"></div>
-                <!-- LaTeX formulations
+                LaTeX formulations
                 <p>One Class SVM decision boundary</p>
                 <p>
                     When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
                     \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
                 </p>
-                -->
             </div>   
         </div>
+        -->
     </div>
     <script src="javascript/index.js"></script>
 

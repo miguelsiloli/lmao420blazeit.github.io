@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSc Project Showcase</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <!-- AM Gantt CSS and JS -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="components/sidebar.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+
+    <!-- Maths -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v6.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Add custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .jumbotron {
+            background-color: rgb(179, 113, 14);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 2rem;
+        }
+
+        .project-description {
+            padding: 0px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div style="position: absolute; top: 15%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="index.html">MsC Dissertation</a>
+                    </li>
+                    <li>
+                        <a href="apn.html">Negotiation Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="improvement.html">Process Improvement</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/miguel-oliveira-862907243/">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div style="display:inline-block;">
+                <h3 class="display-4" style="font-family: 'Bungee';"><img class="animated-gif" src="resources/skill.gif"> Skills</h3>
+                <b> Skills</b>
+            </div>    
+        </div>
+
+        <div class="container project-description">
+            <div class="row">
+                <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Airflow</h4>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="chartdiv" style="height: 300px;"></div>
+        </div>
+
+        <!-- Create a div where the graph will take place
+        <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
+            <h4 style="font-family: 'Bungee'; line-height: 13px;">Demo</h4>
+            <p><i style="font: size 10px;">(in progress)</i></p>
+            <div class="container">
+                <div style="line-height: 13px; display: block;" id="my_dataviz"></div>
+                LaTeX formulations
+                <p>One Class SVM decision boundary</p>
+                <p>
+                    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+                </p>
+            </div>   
+        </div>
+        -->
+    </div>
+    <script src="javascript/index.js"></script>
+
+    <!-- JS D3 Graphs -->
+    <script src="javascript/d3_density_chart.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!-- Optimization Div
+<div class="container" id="Optimization">
+    <h4>Optimization</h4>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">SQL-bound optimizations</h5>
+              <div class="card-subtitle mb-2 text-muted" style="font-size:16px;">Switching SQL Engines from SQLAlchemy-ORM to SQLAlchemy-Core</div>
+              <p class="card-text">The standard framework of SQLAlchemy with object oriented languages such as Python is to implement an Object Relational Mapper (ORM) logic.
+                The ORM package binds SQL structures to language objects providing specific clases and methods to access SQL instructions. This was the original implementation of the SQL handler.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Python-side optimizations</h5>
+                  <div class="card-subtitle mb-2 text-muted" style="font-size:16px;">Switching SQL Engines from SQLAlchemy-ORM to SQLAlchemy-Core & in-memory SQLite</div>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+-->
