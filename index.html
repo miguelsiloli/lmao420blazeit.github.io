@@ -91,7 +91,7 @@
             <div class="row">
                 <h4 style="font-family: 'Bungee';">Motivation</h4>
                 <p>
-                    The strategic goals in industries in heavy mature industries, with low product differentiation is through price competition. 
+                    The strategic goal in industries in heavy mature industries, with low product differentiation is often through price competition and reduced costing structure. 
                     <br>
                     The value proposition is to capture real time data from industrial programmable logic circuits through the shop-floor network and store it into structured databases, to compute industry relevant metrics and to build a dashboard to support managerial decisions.
                 </p>
@@ -100,6 +100,7 @@
         </div>
 
         <div class="container">
+            <h5 style="font-family: 'Bungee';">Timeline</h5>
             <div id="chartdiv" style="height: 300px;"></div>
         </div>
 
@@ -158,13 +159,14 @@
 
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
             <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Data-Engineering</h4>
-            <h6 style="font-family: 'Bungee';">Staging</h6>
+            <p>The data pipeline was designed to dynamically support flexible addition of new machines, cycle-phases, cycle-elements and tire recipes (sequences of cycle-phases).</p>
+            <h5 style="font-family: 'Bungee';">Staging</h5>
             <div class="row">
                 <p>The staging workflow pulls the data from the machine controllers database into a staging SQL cloud database with basic schema validation.<br> Potential for improvement:</p>   
                 <ol style="font-size: 14px;">
                     <li>replace a scheduler for a streaming service such as Spark;</li> 
                     <li>add concurrency between tasks;</li>
-                    <li>robust validation with pandera</li>
+                    <li>robust validation with pydantic (static type checking);</li>
                 </ol> 
             </div>
             
@@ -172,7 +174,7 @@
                 <div class="col-md-4 content-card">
                     <li><b>Data sources</b>: engineering services, programmable logic circuits from production lines</li>
                     <li><b>Data transformations</b>: group by <i>machine id</i></li>
-                    <li><b>Data target</b>: MYSQL RDBMS database from company cloud infrastructure <br>(retention period 3 months)</li>
+                    <li><b>Data target</b>: MySQL RDBMS database from company cloud infrastructure <br><span style="font-size: 12px;">(retention period 3 months)</span></li>
                     <li><b>Schema</b>: unstructured</li>
                     <li><b>Failure modes</b>:</li>
                         <ol style="font-size: 14px;">
@@ -182,10 +184,10 @@
                             <li>dask validation schema failure;</li>
                         </ol> 
                     <li><b>Scheduling</b>: 1 hour</li>
-                    <li><b>Tools</b>: sqlalchemy, urllib, dask, sockets, pandas, airflow</li>
+                    <li><b>Tools</b>: sqlalchemy, urllib, dask, sockets, pandas, airflow, pydantic</li>
                 </div>
                 <div class="col-md-8 content-card">
-                    <img src="resources/data-engineering/data-engineer-airflow1.svg" style="width: inherit;">
+                    <img src="resources/data-engineering/data-engineer-airflow1.svg" style="width: inherit; padding: 0%">
                 </div>
                 <div class="row">
                     <div class="col-md-6 content-card">
@@ -208,39 +210,42 @@
         </div>
 
         <div class="container">
-            <h6 style="font-family: 'Bungee';">Data mart</h6>
-            <p>The data mart workflow structures the data into a Snowflake schema.</p>
+            <h5 style="font-family: 'Bungee';">Data mart</h5>
+            <p>The data mart workflow structures the data into a Snowflake schema. Potential for improvement</p>
+            <ol style="font-size: 14px;">
+                <li>include new features such as humidity, temperature, thermal sensation, canteen menu;</li> 
+                <li>clustering machines into broader classes based on cycle-times</li>
+            </ol> 
             <div class="row">
-                    <div class="col-md-4 content-card">
+                    <div class="col-md-6 content-card">
                         <li><b>Data sources</b>: staging database</li>
                         <li><b>Data transformations</b>:</li>
                         <ol style="font-size: 14px;">
-                            <li>denormalize fact table;</li> 
-                            <li>split fact table into adjacent dimension tables (such as recipe, tire-size, shift, operator, etc) & subdimension tables (date)</li>  </li>
-                            <li>split dimension tables into subdimension tables (such as date, shift)</li>  </li>
-                            <li>handling missing data;</li>
+                            <li>normalize fact & dimension tables;</li> 
+                            <li>split fact table into adjacent dimension tables (such as recipe, operator, shift)</li></li>
+                            <li>split dimension tables into subdimension tables (such as date, recipe, construction type, inch-size)</li></li>
+                            <li>handling missing data and duplicates;</li>
                         </ol> 
                         <li><b>Feature-engineering</b>:</li>
                         <ol style="font-size: 14px;">
                             <li>decompose date into subparts (day, week, weekday, month, etc);</li> 
-                            <li>label encode categorical variables;</li> 
+                            <li>label encode categorical variables (construction type, operator, shift);</li> 
+                            <li>update dimensional tables with new hashmaps;</li>
                         </ol> 
-                        <li><b>Data target</b>: MYSQL RDBMS local application database</li>
-                        <li><b>Schema</b>: Snowflake Schema</li>
+                        <li><b>Data target</b>: MySQL RDBMS local application database</li>
+                        <li><b>Schema</b>: structured -> Snowflake Schema</li>
                         <li><b>Scheduling</b>: 1 day</li>
                         <li><b>Tools</b>: sqlalchemy, dask, pandas, airflow, scikit-learn</li>
-                        <li><b>Potential for improvement</b>:</li>
-                            <ol style="font-size: 14px;">
-                                <li>include new features such as humidity, temperature, thermal sensation, canteen menu;</li> 
-                                <li>clustering machines, operators into broader classes</li>
-                            </ol> 
+                        <p style="padding-top: 5%; font-size:13px"><b>Fun fact:</b> the tire building mechanical part produces a lot of heat from the mechanical stress and other processes such as casting of rubber components and tire vulcanization are also heat intensive. This creates an hazardous hot environment which anecdotally reduces operator efficiency, specially where combined with exceptionally hot weather. <br>A study about the effects of thermal sensation (humidity, metabolic rate and temperature) would be super interesting on employee productivity.</p>
                     </div>
-                    <div class="col-md-8 content-card">
+                    <div class="col-md-6 content-card">
+                        <img src="resources/data-engineering/snowflakeschema.svg" style="width: inherit;">
+                    </div> 
             </div>
         </div>
 
         <div class="container" style="padding-top: 7%; padding-bottom: 7%;">
-            <h4 style="font-family: 'Bungee';">Wireframe</h4>
+            <h4 style="font-family: 'Bungee';"><b style="color: brown;">#</b>Wireframe</h4>
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" style="padding-top: 2%; padding-bottom: 2%;">
                     <ol class="carousel-indicators">
