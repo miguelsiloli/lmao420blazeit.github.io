@@ -209,16 +209,15 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" style="padding-bottom: 7%;">
             <h5 style="font-family: 'Bungee';">Data mart</h5>
-            <p>The data mart workflow structures the data into a Snowflake schema. Potential for improvement</p>
-            <ol style="font-size: 14px;">
-                <li>include new features such as humidity, temperature, thermal sensation, canteen menu;</li> 
-                <li>clustering machines into broader classes based on cycle-times</li>
-            </ol> 
             <div class="row">
                     <div class="col-md-6 content-card">
-                        <li><b>Data sources</b>: staging database</li>
+                        <p>The data mart workflow structures the data into a Snowflake schema. Potential for improvement</p>
+                        <ol style="font-size: 14px;">
+                            <li>include new features such as humidity, temperature, thermal sensation, canteen menu for A/B testing;</li> 
+                            <li>clustering machines into sub-classes based on cycle-times (machines were categorized into Lanes, according to physical differences)</li>
+                        </ol> 
                         <li><b>Data transformations</b>:</li>
                         <ol style="font-size: 14px;">
                             <li>normalize fact & dimension tables;</li> 
@@ -226,20 +225,49 @@
                             <li>split dimension tables into subdimension tables (such as date, recipe, construction type, inch-size)</li></li>
                             <li>handling missing data and duplicates;</li>
                         </ol> 
-                        <li><b>Feature-engineering</b>:</li>
-                        <ol style="font-size: 14px;">
-                            <li>decompose date into subparts (day, week, weekday, month, etc);</li> 
-                            <li>label encode categorical variables (construction type, operator, shift);</li> 
-                            <li>update dimensional tables with new hashmaps;</li>
-                        </ol> 
                         <li><b>Data target</b>: MySQL RDBMS local application database</li>
                         <li><b>Schema</b>: structured -> Snowflake Schema</li>
                         <li><b>Scheduling</b>: 1 day</li>
                         <li><b>Tools</b>: sqlalchemy, dask, pandas, airflow, scikit-learn</li>
-                        <p style="padding-top: 5%; font-size:13px"><b>Fun fact:</b> the tire building mechanical part produces a lot of heat from the mechanical stress and other processes such as casting of rubber components and tire vulcanization are also heat intensive. This creates an hazardous hot environment which anecdotally reduces operator efficiency, specially where combined with exceptionally hot weather. <br>A study about the effects of thermal sensation (humidity, metabolic rate and temperature) would be super interesting on employee productivity.</p>
                     </div>
-                    <div class="col-md-6 content-card">
+                    <div class="col-md-6 content-card" style="text-align: center;">
                         <img src="resources/data-engineering/snowflakeschema.svg" style="width: inherit;">
+                        <caption>1:M Conceptual schema</caption>
+                    </div> 
+            </div>
+        </div>
+
+        <div class="container" style="padding-bottom: 7%;">         
+            <h5 style="font-family: 'Bungee';">User views: materiliazed CID Count tables</h5>
+            <p style="font-size: 13px;">Setting up the basis of comparability & data governance.</p>
+            <div class="row">
+                    <div class="col-md-8 content-card">
+                        CID Count views feed the application layer for machine actuator control. These are divided into <b>CID Start</b> and <b>CID End</b> <u>materialized views</u> with the purpose of providing
+                        a strong basis for <u>cross-sectional</u> and <u>longitudinal studies</u> in data governance. A big assumption for any analysis is the consistency, reliability and clarity about
+                        the measuring systems and instrumentation.
+                        <p>CID count tables shows the distribution of actuator activations between machines and recipes for the start and end of each cycle-phase, respectively.</p> 
+                        <li><b>Materialized views over tables or virtual views</b></li>  
+                        <ol style="font-size: 14px;">
+                            <li>abstraction layer in data mart, preventing modifications in original table structure;</li>
+                            <li>view is used for governance purposes, should be updated occasionally</li> 
+                            <li>materialized views support manipulation (JOINs) and can be used in subqueries</li>
+                        </ol> 
+                        <li><b>Transformations</b>:</li>
+                        <ol style="font-size: 14px;">
+                            <li>COUNT cycle-element start over GROUP-BY machine, recipe, date (day), cycle-phase, cycle-element;</li> 
+                            <li>JOIN with DIM tables;</li> 
+                        </ol> 
+                        <li><b>Cross-sectional studies</b>:</li>
+                        <ol style="font-size: 14px;">
+                            <li>compare the % of triggers per each subgroup (usually choosing a cohort from same construction-type & cycle-phase, but different machine groups);</li> 
+                        </ol> 
+                        <li><b>Longitudinal studies</b>:</li>
+                        <ol style="font-size: 14px;">
+                        </ol> 
+                    </div>
+                    <div class="col-md-4 content-card" style="text-align: center;">
+                        <img src="resources/data-engineering/cidstart.svg" style="width: inherit;">
+                        <caption style="text-align: center;">CID Start & CID End are twin materialized views. The key difference is CID Start counts the start cycle actuator releases, CID End counts the end cycle.</caption>
                     </div> 
             </div>
         </div>
